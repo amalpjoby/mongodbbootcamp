@@ -236,10 +236,10 @@ Restart the server by killing it with `Ctrl+C` and running `npm start` again.
 
 Open Postman. On first launch you will see the following window:
 
-![enter image description here](https://s3.ap-south-1.amazonaws.com/development.freightdeck.com/Postman1.png)
+![enter image description here](https://freightdeck-assets.s3.ap-south-1.amazonaws.com/Postman1.png)
 
 Just Cross this screen from the cross button on top right of this window. Now Click the `+`  button and type this url `http://localhost:3000/users/info`. You will see the response as in the below image.
 
-![enter image description here](https://s3.ap-south-1.amazonaws.com/development.freightdeck.com/Postman_2.png)
+![enter image description here](https://freightdeck-assets.s3.ap-south-1.amazonaws.com/Postman_2.png)
 
 
