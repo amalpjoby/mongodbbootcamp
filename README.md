@@ -236,10 +236,152 @@ Restart the server by killing it with `Ctrl+C` and running `npm start` again.
 
 Open Postman. On first launch you will see the following window:
 
-![enter image description here](https://freightdeck-assets.s3.ap-south-1.amazonaws.com/Postman1.png)
+![enter image description here](https://freightdeck-assets.s3.ap-south-1.amazonaws.com/Postman_1.png)
 
 Just Cross this screen from the cross button on top right of this window. Now Click the `+`  button and type this url `http://localhost:3000/users/info`. You will see the response as in the below image.
 
 ![enter image description here](https://freightdeck-assets.s3.ap-south-1.amazonaws.com/Postman_2.png)
 
 
+Now let's see how the url `http://localhost:3000/users/info` is constructed. The first part i.e `http://localhost:3000` is our host running on port 3000. Then we asked the application to use `usersRouter` for `/users` route. So we came upto `http://localhost:3000/users`. Then inside `routes/users.js` we define a GET route for `/info` and sent back the response with status 200 and a json data `{ data:  "Welcome to Actyv!!" }` . So we got now `http://localhost:3000/users/info`.
+
+### Assignment
+
+Create a route such that when I hit the route `http://localhost:3000/books/search` I should get back a JSON response `{id: 1, name: "Harry Potter", author: "J.K. Rowling"}`
+
+Create a route such that when I go to `http://localhost/auth/login` I should see webpage templatized in JADE with two fields username and password.
+
+Read up on HTTP methods like GET, POST, PATCH, DELETE etc.
+
+Read Http Status Codes like 404, 403, 200, 201, 500 etc.
+
+## Day 3
+
+In Day 3 we will see how can we send the data from frontend to backend in the form of request body as well as request parameters.
+
+### Prerequisites
+
+1. Basic Express routing should be clear.
+2. You should be able to send requests using postman.
+
+### Walkthrough
+
+Today along with GET requests we will be sending some POST requests also. Let's begin.
+
+**Request Body:**
+
+Suppose we want to store details of a book which user enters in a frontend in a form and we want to store that details in our database. So first step will be to get the data from frontend to backend. For these type of use cases we can use POST requests.
+
+First let's create a route `http://localhost:3000/books/add`. Since this a book route we should not be using `routes/users.js` or `routes/index.js`. We will create a new router to handle our book routes.
+
+Create a new file under `routes` folder books.js. After that first things first, we will import the express router. Add the following lines of code in `routes/books.js`
+
+```
+var express =  require('express');
+var router = express.Router();
+```
+
+Now add the POST route as follows
+
+```
+router.post('/add', function (req, res, next) {
+	console.info(req.body);
+	res.status(200).json({ message:  "Book Saved Successfully" });
+});
+```
+
+Remember we gave you a task to find what `express.json()` does. The answer is it parses the request data in the form of json so that we can access the frontend data through `req.body`.
+
+Last but not the least, never forget to export the router. Add the following piece of code at the last.
+
+```
+module.exports  = router;
+```
+
+Now we have successfully create a route for adding a book. Now we need to register the route in `app.js`
+
+Open `app.js` and add the following piece of code.
+
+```
+var booksRouter =  require('./routes/books');
+```
+
+Here we are importing that router which we exported through `routes/books.js`.
+
+Now we have to tell the app to use this route.
+
+Add the following piece of code in `app.js`
+
+```
+app.use("/books", booksRouter)
+```
+
+So all the routes starting with `/books` will search for methods in `routes/books.js`.
+
+Restart the server by killing it with `Ctrl+C` and running `npm start` again.
+
+Now open postman. Since this is a POST request first change request type to POST from the dropdown. Then add the url `http://localhost:3000/books/add`. Now to send data via postman we have to click the "Body" Radio Button just below where you type the url and also change the type from TEXT to JSON. Then in the space provided send the following data as payload.
+
+```
+{
+	"id": "1",
+	"name": "Harry Potter"
+}
+```
+
+Please refer to highlighted areas in the below image for better understanding:
+![enter image description here](https://freightdeck-assets.s3.ap-south-1.amazonaws.com/Postman_3.png)
+
+Then click Send.
+
+Since you used `console.info(req.body)` this data should be printed on your console as well:
+
+![enter image description here](https://freightdeck-assets.s3.ap-south-1.amazonaws.com/Postman_4.png)
+
+**Request Params:**
+
+Somewhere you must have seen urls like `/books/find/:id`. So in this case the part after the colon becomes a dynamic content and `id` will act as a variable not a string.
+
+Example: if we send a request to the url `/books/find/1234` then in the callback function of this route we can access the id as `const {id} = req.params`. The variable name `id` should be same as in `/books/find/:id`.
+
+Now let's talk about this syntax `const {id} = req.params`. This type of syntax is called destructuring. We can also write it as `const id = req.params.id`. Destructuring is a shorthand for this.
+
+Now let's add another route as follows in `routes/books.js`
+
+```
+router.get('/find/:id', function (req, res, next) {
+	const {id} = req.params
+	console.info(id);
+	res.status(200).json({ message:  "Book Found" });
+});
+```
+
+Remember we gave you a task to find what `express.urlencoded()` does. The answer is it parses the data in the url so that we can access the frontend data through `req.params` .
+
+Restart the server by killing it with `Ctrl+C` and running `npm start` again.
+
+![enter image description here](https://freightdeck-assets.s3.ap-south-1.amazonaws.com/Postman_5.png)
+
+Now send a GET request using postman to route `http://localhost:3000/books/find/1234` and you will see your id which is 1234 is accessible through id variable and also printed in your console.
+
+![enter image description here](https://freightdeck-assets.s3.ap-south-1.amazonaws.com/Postman_6.png)
+
+### Assignment
+
+Create a form using JADE templating engine such that when I got to the route `http://localhost:3000/book/add` it will render a webpage with 3 input boxes containing book id, book name, author name and a Submit button. When I click on the submit button it should send the form data to the backend and print it to console.
+
+Implement this with both request body and request params means in Case 1 the data will be in request body and Case 2 data will be in request params.
+
+Remember one thing, you have to use `/book/add` route only to implenent this.
+
+## Day 4
+
+In Day 4 we will learn how to connect to the database, write schemas and saving data to database.
+
+### Prerequisites
+
+1. Create a free tier account in MongoDB Atlas.
+2. It will take 5-10 minutes to setup your cluster.
+3. Altlas will ask you to create a new database user. Create this user and remember the password.
+4. Then cliclk on `Choose a connection method` and under this choose `Connect your Application`.
+5. It will then give you a connection string. Copy and save it somewhere for now and replace `<password>` with your actual password in this string. Note: It is a bad practice to directly set password in this string. Later in this bootcamp we will learn how to use `Vault` for storing our secret keys.
