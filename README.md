@@ -30,14 +30,16 @@
 
 Hit `Shift+Cmd+P` in VSCode and click `Open Settings (JSON)` then append the following to it.
 
-```
+```json
 {
-	"editor.fontSize": 26,
-	"editor.tabSize": 2,
-	"editor.wordWrap": "on",
-	"terminal.integrated.fontSize": 26,
-	"emmet.includeLanguages": {"javascript": "javascriptreact"},
-	"emmet.syntaxProfiles": {"javascript": "jsx"}
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "emmet.includeLanguages": { "javascript": "javascriptreact" },
+  "emmet.syntaxProfiles": { "javascript": "jsx" },
+  "eslint.workingDirectories": [
+    "./client",
+    "./server"
+  ]
 }
 ```
 
