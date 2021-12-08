@@ -332,7 +332,7 @@ Now open postman. Since this is a POST request first change request type to POST
 ```
 
 Please refer to highlighted areas in the below image for better understanding:
-![enter image description here](https://freightdeck-assets.s3.ap-south-1.amazonaws.com/Postman_.png)
+![enter image description here](https://freightdeck-assets.s3.ap-south-1.amazonaws.com/Postman_3.png)
 
 Then click Send.
 
