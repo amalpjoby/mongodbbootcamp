@@ -387,3 +387,4 @@ In Day 4 we will learn how to connect to the database, write schemas and saving 
 3. Altlas will ask you to create a new database user. Create this user and remember the password.
 4. Then cliclk on `Choose a connection method` and under this choose `Connect your Application`.
 5. It will then give you a connection string. Copy and save it somewhere for now and replace `<password>` with your actual password in this string. Note: It is a bad practice to directly set password in this string. Later in this bootcamp we will learn how to use `Vault` for storing our secret keys.
+6. Now clone this repository git@github.com:Freight-Deck/Bootcamp.git   Open a terminal in your preffered location and type `git clone git@github.com:Freight-Deck/Bootcamp.git`. You can do it using github CLI also, read about that.
