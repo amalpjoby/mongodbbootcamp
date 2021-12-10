@@ -742,3 +742,35 @@ Now go to folder `routes/index.js`. Here all the routes are defined, we just sep
 	1. Create an instance method to check if a person has birthday today.
 	2. Create a static method to fetch all users who are having birthday today.
 	3. Create a virtual property which will return full name ie first name + last name of the user.
+
+
+
+## Engineering Core Values
+
+- **Be humble!**
+- Always strive for *simplicity* and *clarity* over 
+complexity and fanciness.
+	- Don't over-enginner things
+	- Don't solve problems which we don't have
+
+	![simplicity](https://i.imgflip.com/3gauln.jpg "simplicity")
+- Mistakes
+	- Don't be afraid of making them
+	-	However, don't make the same mistake twice!
+- **Thoughtful Disagreement** - the goal is not to convince the opposite party that you are right, but simply to find out which view is true and then what to do about it. We should strive for *attacking problems as a team*, *help overcome each others' biases*, and *deliver the best solution*.
+- Don't be afraid to ask for help
+	- Make sure you have exhausted all other options before asking a colleague for help e.g Google, Stack Overflow etc.
+	- Respect your colleague's **[flow](https://en.wikipedia.org/wiki/Flow_(psychology))** and _only ask for help when they are free._
+
+		![flow](https://www.gamasutra.com/db_area/images/feature/166972/figure1.png "Logo Title Text 1")
+
+	- Don't interrupt their **flow**, here's why:
+
+		 ![flow](https://i.imgur.com/cXBhfPt.jpg, "Don't interrupt a programmer")
+
+
+- Offer help when asked
+	- Try to understand the problem and the context without blindly offering a solution
+	- Try to understand what all approaches the person has tried and why they haven't worked for them
+	- Explain the context and assumptions behind the solution you are providing
+	- Make sure that the person understands your solution and the reasoning behind it
