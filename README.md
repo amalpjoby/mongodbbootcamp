@@ -45,9 +45,11 @@ Hit `Shift+Cmd+P` in VSCode and click `Open Settings (JSON)` then append the fol
 
 # Let's Begin
 
-Task for Day 1 will be to setup the environment like tools, plugins and run the express server. Then we will learn to configure git to push our code to github.
+First of all let us start with getting familiar with javascript concepts. Go to `https://github.com/Freight-Deck/Bootcamp/tree/js-bootcamp/Javascript` and go through all the modules for you knowledge. once you are done then let us begin with the nodejs bootcamp.
 
 ## Day 1
+
+Task for Day 1 will be to setup the environment like tools, plugins and run the express server. Then we will learn to configure git to push our code to github.
 
 ### Prerequisites
 
