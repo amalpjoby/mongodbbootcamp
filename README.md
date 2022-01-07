@@ -247,7 +247,7 @@ Just Cross this screen from the cross button on top right of this window. Now Cl
 ![enter image description here](https://freightdeck-assets.s3.ap-south-1.amazonaws.com/Postman_2.png)
 
 
-Now let's see how the url `http://localhost:3000/users/info` is constructed. The first part i.e `http://localhost:3000` is our host running on port 3000. Then we asked the application to use `usersRouter` for `/users` route. So we came upto `http://localhost:3000/users`. Then inside `routes/users.js` we define a GET route for `/info` and sent back the response with status 200 and a json data `{ data:  "Welcome to Actyv!!" }` . So we got now `http://localhost:3000/users/info`.
+Now let's see how the url `http://localhost:3000/users/info` is constructed. The first part i.e `http://localhost:3000` is our host running on port 3000. Then we asked the application to use `usersRouter` for `/users` route. So we came upto `http://localhost:3000/users`. Then inside `routes/users.js` we define a GET route for `/info` and sent back the response with status 200 and a json data `{ data:  "Welcome to FREIGHTDECK!!" }` . So we got now `http://localhost:3000/users/info`.
 
 ### Assignment
 
@@ -392,15 +392,6 @@ In Day 4 we will learn how to connect to the database, write schemas and saving 
 6. Now clone this repository git@github.com:Freight-Deck/Bootcamp.git   Open a terminal in your preffered location and type `git clone git@github.com:Freight-Deck/Bootcamp.git`. You can do it using github CLI also, read about that.
 
 In Day 4 we will learn how to connect to the database, write schemas and saving data to database.
-
-### Prerequisites
-
-1. Create a free tier account in MongoDB Atlas.
-2. It will take 5-10 minutes to setup your cluster.
-3. Altlas will ask you to create a new database user. Create this user and remember the password.
-4. Then cliclk on `Choose a connection method` and under this choose `Connect your Application`.
-5. It will then give you a connection string. Copy and save it somewhere for now and replace `<password>` with your actual password in this string. Note: It is a bad practice to directly set password in this string. Later in this bootcamp we will learn how to use `Vault` for storing our secret keys.
-6. Now clone this repository https://github.com/Actyv/Actyv-BootCamp.git. Open a terminal in your preffered location and type `git clone https://github.com/Actyv/Actyv-BootCamp.git`.
 
 ### Walkthrough
 
@@ -675,7 +666,7 @@ If you remember we did routing like this:
 
 ```
 router.get('/info', function(req, res, next) {
-	res.status(200).json({data: "Welcome to Actyv!!"})
+	res.status(200).json({data: "Welcome to FREIGHTDECK!!"})
 });
 ```
 
