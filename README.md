@@ -674,7 +674,7 @@ If we separate the callback function, it will become a controller like below.
 
 ```
 infoController = function(req, res, next) {
-	res.status(200).json({data: "Welcome to Actyv!!"})
+	res.status(200).json({data: "Welcome to FREIGHTDECK!!"})
 }
 ```
 Now we can rewrite our route as below:
