@@ -1,0 +1,21 @@
+extends layout 
+
+block content 
+  h1 Delete 
+  .container
+    p.lead
+      | Enter the first name of the user you want to delete. Or Click Clear All to delete all the entries
+      br
+      a(href='/profiles/list')  View Profiles.
+      br
+      a(href='/profiles/add')  Add Profiles.
+      form(role='form', method='post')
+        .form-group
+          label(for='firstname') First Name
+          input.form-control(type='text', id='user', name='firstname', placeholder='firstname', value='', required)
+        br
+        button.btn.btn-primary(type='submit', formaction='/profiles/delete/deleteuser', method='post',) Delete User
+        &nbsp;
+        button.btn.btn-primary(type='submit', formaction='/profiles/delete/deleteall', method='post') Clear All
+        &nbsp;
+        a.btn.btn-default(role='button', href='/') Cancel

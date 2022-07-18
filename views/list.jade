@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1 #{title} 
+  p your query result
+  h2 -
+  div
+    table
+      thead
+        tr: th Firstname  
+            th Lastname 
+            th Birthday
+            th Phone number
+
+      tbody
+        for user in data
+          tr
+            td #{user.firstname}
+            td #{user.lastname}
+            td #{user.dob}
+            td #{user.phone}
+              

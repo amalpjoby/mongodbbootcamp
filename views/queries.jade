@@ -1,0 +1,14 @@
+extends layout 
+
+block content 
+  h1 Queries 
+  .container
+    p.lead
+      | .
+      form(role='form', action='/queries/bday', method='post')
+        .form-group
+          label(for='date') Date
+          input.form-control(type='date', id='date', name='date', required)
+        button.btn.btn-primary(type='submit') Bday Folks
+        &nbsp;
+        a.btn.btn-default(role='button', href='/') Cancel

@@ -1,0 +1,30 @@
+extends layout
+
+block content
+
+ .container
+   h1 Add a new User 
+   p.lead
+     | Add new User to the database
+     a(href='/Profiles')  Profiles.
+     form(role='form', action='/profiles/add/store', method='post')
+       .form-group
+         label(for='firstname') First Name
+         input.form-control(type='text', name='firstname', placeholder='firstname', required)
+       .form-group
+         label(for='lastname') Last Name
+         input.form-control(type='text', id='user', name='lastname', placeholder='lastname', required)
+       .form-group
+         label(for='address') Address 
+         input.form-control(type='text', id='user', name='address', placeholder='address', required)
+       .form-group
+         label(for='dob') Date of Birth
+         input.form-control(type='date', id='user', name='dob', placeholder='2000-09-27', required)
+       .form-group
+         label(for='phone') Phone
+         input.form-control(type='number', id='user', name='phone', placeholder='9846808194')
+       button.btn.btn-primary(type='submit') Submit
+       &nbsp;
+       a.btn.btn-default(role='button', href='/') Cancel
+
+
